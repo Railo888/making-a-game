@@ -7,7 +7,7 @@ function getComputerChoice() {
     console.log(getComputerChoice);
 }
 
-function playRound(playerSection, computerSection); {
+function playRound(playerSection, computerSection) {
     playerSection = playerSection.toLowerCase();
 
     if (playerSection === computerSection) {
@@ -21,9 +21,11 @@ function playRound(playerSection, computerSection); {
     }
 }
 
-function game() {
+function loopGame() {
+    const gameScore = playRound(playerSection);
 
     for (let i = 1; i < 5; i++) {
-
+        const result = playRound();
+        return 'next round';
     }
 }
