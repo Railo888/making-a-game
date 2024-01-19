@@ -24,7 +24,7 @@ function playRound(playerSection, computerSection) {
 function loopGame() {
     const gameScore = playRound(playerSection);
 
-    for (let i = 1; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         const result = playRound();
         return 'next round';
     }
