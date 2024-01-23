@@ -9,7 +9,7 @@ async function play() {
     const playerChoice = await getPlayerChoice();
     const cpuChoice = getCpuChoice();
     const finalResult = getResult(playerChoice, cpuChoice);
-    const displayScore(getResult);
+    displayScore(getResult);
     displayFResult(finalResult);
 }
 
