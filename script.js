@@ -9,20 +9,37 @@ async function play() {
     const playerChoice = await getPlayerChoice();
     const cpuChoice = getCpuChoice();
 
-    const result = getResult(playerChoice, cpuChoice);
-    displayResult(result);
+    const finalResult = getResult(playerChoice, cpuChoice);
+    displayResult(finalResult);
 }
 
+// function getPlayerChoice() {
+//     return new Promise((resolve) => {
+//         readline.question(
+//             'Choose your hand (Rock, Paper, or Scissors): ',
+//             (hand) => {
+//                 readline.close();
+//                 resolve(hand.trim());
+//             }
+//         );
+//     });
+// }
 function getPlayerChoice() {
-    return new Promise((resolve) => {
-        readline.question(
-            'Choose your hand (Rock, Paper, or Scissors): ',
-            (hand) => {
-                readline.close();
-                resolve(hand.trim());
-            }
-        );
+    document.querySelector("#btn1");
+    document.querySelector("#btn2");
+    document.querySelector("#btn3");
+
+    btn1.addEventListener('click', () => {
+        return (playerChoice('Rock'));
     });
+    btn2.addEventListener('click', () => {
+        return (playerChoice('Scissors'));
+    });
+    btn3.addEventListener('click', () => {
+        return (playerChoice('Paper'));
+    });
+
+
 }
 
 function getCpuChoice() {
@@ -46,22 +63,21 @@ function getResult(playerChoice, cpuChoice) {
     }
 }
 
-function displayResult(result) {
+function displayResult(finalResult) {
     // TODO: implement
-    return result;
+    return finalResult;
 }
 
 // play();
 
-const loopPlay = function () {
-    for (let i = 0; i = 5; i++) {
-        play();
-    }
-}
+// const loopPlay = function () {
+//     for (let i = 0; i = 5; i++) {
+//         play();
+//     }
+// }
 
-loopPlay();
+// loopPlay();
 
-// まず、playerがR,S,Pのどれかを入力する。
-// 次に、PCUが受け取って、ランダムにR,S,Pを出す。
-// それから、プレイヤーとCPUの手が同じなら'Tie'。プレイヤーが勝つと'YOU win'を出力。CPUが勝つと'you lose'を出力。
-// この流れを、5回繰り返して多く勝ったほうが勝ち。
+// 2-4 ランニングスコアを表示し、1人のプレイヤーが 
+// 5ポイントに達した時点でゲームの勝者を発表します。がわからない
+
