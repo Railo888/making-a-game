@@ -1,7 +1,24 @@
-button {
+#box {
+    width: 800px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+#btn1,
+#btn2,
+#btn3 {
+    width: 40%;
+    height: 300px;
+    margin: 20px 0;
+    font-size: 40px;
+}
+
+
+/* button {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10vw;
     font-size: 35px;
-}
+} */

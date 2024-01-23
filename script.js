@@ -8,9 +8,9 @@ const readline = require('readline').createInterface({
 async function play() {
     const playerChoice = await getPlayerChoice();
     const cpuChoice = getCpuChoice();
-
     const finalResult = getResult(playerChoice, cpuChoice);
-    displayResult(finalResult);
+    const displayScore(getResult);
+    displayFResult(finalResult);
 }
 
 // function getPlayerChoice() {
@@ -24,6 +24,11 @@ async function play() {
 //         );
 //     });
 // }
+
+const result = document.createElement('div');
+const runningScore = document.querySelector('div');
+runningScore.textContent = 'Player: 0 - Computer: 0'
+
 function getPlayerChoice() {
     document.querySelector("#btn1");
     document.querySelector("#btn2");
@@ -38,9 +43,8 @@ function getPlayerChoice() {
     btn3.addEventListener('click', () => {
         return (playerChoice('Paper'));
     });
+};
 
-
-}
 
 function getCpuChoice() {
     // TODO: implement
@@ -52,32 +56,55 @@ function getCpuChoice() {
 function getResult(playerChoice, cpuChoice) {
     // TODO: implement
     if (playerChoice === cpuChoice) {
+        result.textContent = 'Tie';
         return 'Tie';
     } else if (
         playerChoice === 'Rock' && cpuChoice === 'Scissors'
         || playerChoice === 'Scissors' && cpuChoice === 'Paper'
         || playerChoice === 'Paper' && cpuChoice === 'Rock') {
-        return 'You win'
+        result.textContent = 'You win'
+        return 'You win';
     } else {
-        return 'You lose'
+        result.textContent = 'You lose'
+        return 'You lose';
     }
+
 }
 
-function displayResult(finalResult) {
-    // TODO: implement
-    return finalResult;
+function displayScore(getResult) {
+    runningScore.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
+    const playerScore = 0;
+    const cpuScore = 0;
+    if (getResult === 'You win') {
+        playerScore++;
+    } else if (getResult === 'You lose') {
+        cpuScore++;
+    }
+
 }
 
-// play();
+displayScore();
 
-// const loopPlay = function () {
+// function loopPlay () {
 //     for (let i = 0; i = 5; i++) {
 //         play();
 //     }
 // }
-
 // loopPlay();
+
+
+function displayFResult(finalResult) {
+    // TODO: implement
+    if (playerScore === 5) {
+        result.textContent = 'Player wins the game!'
+    } else if (cpuScore === 5) {
+        result.textContent = 'Cpu wins the game!'
+    }
+    finalResult;
+}
+
+
+play();
 
 // 2-4 ランニングスコアを表示し、1人のプレイヤーが 
 // 5ポイントに達した時点でゲームの勝者を発表します。がわからない
-
